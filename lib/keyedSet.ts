@@ -1,8 +1,6 @@
-interface KeyedItem {
-  key: string;
-}
+import type { KeyedItem } from "./keyedItem";
 
-class KeyedSet<T extends KeyedItem> {
+export class KeyedSet<T extends KeyedItem> {
   private valuesRecord: Record<string, T> = {};
 
   constructor(initialValues: T | T[]) {
@@ -45,7 +43,7 @@ class KeyedSet<T extends KeyedItem> {
   }
 
   public has(value: T) {
-    return value.key in this.values;
+    return value.key in this.valuesRecord;
   }
 
   public union(other: KeyedSet<T>) {
@@ -100,5 +98,9 @@ class KeyedSet<T extends KeyedItem> {
     if (this.size < other.size) return false;
 
     return Object.values(other.values).every((value) => this.has(value));
+  }
+
+  public clone() {
+    return new KeyedSet<T>(this.values);
   }
 }
