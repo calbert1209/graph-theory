@@ -57,6 +57,19 @@ describe("KeyedSet", () => {
     });
   });
 
+  describe("getValue", () => {
+    test("should return value in set via key", () => {
+      const value = fakeEdgeSet.getValue(fakeEdges[0].key);
+      expect(value).toMatchObject(fakeEdges[0]);
+    });
+
+    test("should return undefined when value not in set", () => {
+      const edgeNotInSet = createFakeEdge("y", "z");
+      const value = fakeEdgeSet.getValue(edgeNotInSet.key);
+      expect(value).toBeUndefined();
+    });
+  });
+
   const otherEdges = [
     createFakeEdge("a", "c"),
     createFakeEdge("b", "c"),

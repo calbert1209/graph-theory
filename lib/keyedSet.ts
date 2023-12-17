@@ -26,6 +26,10 @@ export class KeyedSet<T extends KeyedItem> {
     return Object.keys(this.valuesRecord).length;
   }
 
+  public getValue(key: string): T | undefined {
+    return this.valuesRecord[key];
+  }
+
   public add(values: T | T[]) {
     this.addValues(values);
   }
