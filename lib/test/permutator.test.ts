@@ -1,4 +1,3 @@
-import { describe, test, expect } from "vitest";
 import { Permutator } from "../permutator";
 import { ALL_WITHOUT_RE_PICK, ALL_WITH_RE_PICK } from "./permutation-example";
 
