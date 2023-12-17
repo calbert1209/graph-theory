@@ -15,7 +15,7 @@ describe("Permutator", () => {
   });
 
   test("permutate with multi-pick", () => {
-    const output = p.permutate(4);
+    const output = p.permutate(4, true);
 
     expect(output).toHaveLength(multiPickKeySet.size);
     output.forEach((permutation) => {
@@ -25,7 +25,7 @@ describe("Permutator", () => {
   });
 
   test("permutate with single pick", () => {
-    const output = p.permutate(4, true);
+    const output = p.permutate(4, false);
 
     expect(output).toHaveLength(singlePickKeySet.size);
     output.forEach((permutation) => {
